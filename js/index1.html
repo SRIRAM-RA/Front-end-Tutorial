@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="outerbox">
+        <div class="innerbox1">
+            <h1>Counter: <span id="counter">0</span></h1>
+        </div>
+        <div class="innerbox2">
+           <button type="button" class="btnclass" onclick="Increase()" id="increaseValue">Increase</button> 
+           <button type="button" class="btnclass" onclick="Decrease()" id="decreaseValue">Decrease</button>
+           <button type="button" class="btnclass" id="clearValue">Clear All</button>
+        </div>
+    </div>
+
+
+    <script>
+        function Increase(){
+            var counter = document.getElementById("counter");
+            var value = counter.innerHTML
+            value++
+            counter.innerHTML = value
+            if(value > 0){
+                counter.style.color = "green"
+            }
+            // console.log(counter, value)
+        }
+
+        function Decrease(){
+            var counter = document.getElementById("counter");
+            var value = counter.innerHTML
+            value--
+            counter.innerHTML = value
+            if(value < 0){
+                counter.style.color = "red"
+            }
+        }
+    </script>
+
+    <script>
+        function clear(){
+            var counter = document.getElementById("counter");
+            counter.innerHTML = 0;
+            counter.style.color = "blue";
+        }
+
+        document.getElementById("clearValue").addEventListener('click', clear)
+
+        console.log(document.getElementsByClassName("btnclass"))
+
+
+        console.log("first occurance alone",document.querySelector(".btnclass"));
+        document.querySelector(".btnclass").childNodes[0].textContent = "first occurance"
+
+        
+        console.log("all the occurances",document.querySelectorAll(".btnclass"));
+    </script>
+</body>
+</html>
